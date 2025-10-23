@@ -1,0 +1,26 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="assets/logo.png" alt="App Logo" class="navbar-logo" />
+    <!-- <span class="navbar-title">AI Medical Summarization Dashboard</span> -->
+  </div>
+
+  <div class="navbar-right">
+    <span class="navbar-user">👤 Admin</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</nav>
+<!-- Sidebar -->
+<div class="sidebar">
+    <button class="sidebar-btn" (click)="goToDashboard()">
+    <i class="fa-solid fa-chart-line"></i> Summaries Preview
+  </button> 
+
+  <!-- <button class="sidebar-btn" (click)="goToConfigurator()">
+    <i class="fa-solid fa-gear"></i> Configuration
+  </button> -->
+<!-- 
+  <button class="sidebar-btn" (click)="goToLogs()">
+    <i class="fa-solid fa-clipboard-list"></i> Audit Logs
+  </button> -->
+</div>

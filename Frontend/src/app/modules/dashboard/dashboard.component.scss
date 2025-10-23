@@ -1,0 +1,44 @@
+@import '../../shared/styles/panel.scss';
+
+/* ---- Dashboard------*/
+
+.summary-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.green {
+  background: #16a34a;
+}
+.card.yellow {
+  background: #eab308;
+}
+.card.red {
+  background: #dc2626;
+}
+.card.blue {
+  background: #2563eb;
+}
+
+.card h2 {
+  margin: 8px 0 0;
+  font-size: 28px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 20px;
+}

@@ -1,0 +1,68 @@
+<div class="auth-container">
+  <!-- Left Image Section -->
+  <div class="auth-image">
+  <img src="https://images.pexels.com/photos/6942256/pexels-photo-6942256.jpeg" alt="">
+  <img src="https://images.pexels.com/photos/6153343/pexels-photo-6153343.jpeg" alt="">
+  <img src="https://images.pexels.com/photos/7821267/pexels-photo-7821267.jpeg" alt="">
+  <img src="https://images.pexels.com/photos/7578801/pexels-photo-7578801.jpeg" alt="">
+  <img src="https://images.pexels.com/photos/8297220/pexels-photo-8297220.jpeg" alt="">
+
+  <div class="overlay">
+    <h1>AI MEDICAL RECORD REVIEW (AMRR) </h1>
+  </div>
+
+  <div class="slide-indicators">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+
+  <!-- Right Form Section -->
+  <!-- Right Form Section -->
+<div class="auth-form">
+  <!-- Logo & tagline section -->
+  <div class="logo-container">
+    <div class="logo-content fade-in-up">
+      <img src="assets/logo.png" alt="App Logo" class="logo" />
+      <p class="tagline">
+        Empowering the healthcare industry with <br/>
+        <b>Excellent and reliable solutions and services</b>.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-header">
+    <h2>{{ isLoginMode ? 'Welcome Back' : 'Create an account' }}</h2>
+    <p>
+      {{ isLoginMode ? "Don't have an account?" : "Already have an account?" }}
+      <a href="#" (click)="toggleMode(); $event.preventDefault();">
+        {{ isLoginMode ? "Sign up here" : "Log in" }}
+      </a>
+    </p>
+  </div>
+
+  <form (ngSubmit)="isLoginMode ? login() : signup()" class="form-content">
+    <div *ngIf="!isLoginMode" class="name-fields">
+      <input type="text" placeholder="First name" [(ngModel)]="firstName" name="firstName" required />
+      <input type="text" placeholder="Last name" [(ngModel)]="lastName" name="lastName" required />
+    </div>
+
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+    <input type="password" placeholder="Enter your password" [(ngModel)]="password" name="password" required />
+
+    <div *ngIf="!isLoginMode" class="terms">
+      <label>
+        <input type="checkbox" required />
+        I agree to the <a href="#">Terms & Conditions</a>
+      </label>
+    </div>
+
+    <button type="submit" class="primary-btn">
+      {{ isLoginMode ? 'Login' : 'Create account' }}
+    </button>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
+</div>
+
+</div>

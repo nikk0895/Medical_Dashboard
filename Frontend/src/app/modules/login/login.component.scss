@@ -1,0 +1,326 @@
+/* ========== GLOBAL LAYOUT ========== */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, #adb5bd, #b3cde0);
+  color: #1f1f2e;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ========== LEFT IMAGE SECTION ========== */
+/* Auth Image Section (slideshow container) */
+.auth-image {
+  flex: 1.2;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #000;
+}
+
+/* Background gradient overlay */
+.auth-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+  z-index: 1;
+}
+
+/* Slideshow Images (5 total) */
+.auth-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeSlideshow 25s infinite;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Each image’s delay (5s per image) */
+.auth-image img:nth-child(1) { animation-delay: 0s; }
+.auth-image img:nth-child(2) { animation-delay: 5s; }
+.auth-image img:nth-child(3) { animation-delay: 10s; }
+.auth-image img:nth-child(4) { animation-delay: 15s; }
+.auth-image img:nth-child(5) { animation-delay: 20s; }
+
+/* Smooth crossfade animation */
+@keyframes fadeSlideshow {
+  0%, 20% { opacity: 1; }
+  25%, 100% { opacity: 0; }
+}
+
+/* Overlay text (optional) */
+.auth-image .overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+.auth-image h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* --- Progress Dots --- */
+.slide-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.slide-indicators span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  animation: indicator 25s infinite;
+}
+
+/* Timing for each dot to light up */
+.slide-indicators span:nth-child(1) { animation-delay: 0s; }
+.slide-indicators span:nth-child(2) { animation-delay: 10s; }
+.slide-indicators span:nth-child(3) { animation-delay: 20s; }
+.slide-indicators span:nth-child(4) { animation-delay: 30s; }
+.slide-indicators span:nth-child(5) { animation-delay: 40s; }
+
+/* Active dot highlight */
+@keyframes indicator {
+  0%, 20% { background: #fff; transform: scale(1.2); }
+  25%, 100% { background: rgba(255,255,255,0.4); transform: scale(1); }
+}
+
+/* ========== RIGHT FORM SECTION ========== */
+.auth-form {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Logo container */
+.logo-container {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  pointer-events: none;
+}
+
+/* Inner wrapper for proper centering */
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+/* Logo styling */
+.logo {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tagline styling */
+.tagline {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #2f2f2f;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.tagline b {
+  color: #007bff;
+  font-weight: 700;
+}
+
+
+
+/* Header */
+.form-header {
+  margin-top: 100px; /* space for logo */
+  margin-bottom: 20px; /* reduced gap under header */
+  text-align: left;
+}
+
+.form-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1f1f2e;
+}
+
+.form-header p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.form-header a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.form-content input[type="text"],
+.form-content input[type="email"],
+.form-content input[type="password"] {
+  width: 100%;
+  background-color: #f1f3f5;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box; 
+}
+
+.form-content input:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #fff;
+}
+
+/* Button */
+.primary-btn {
+  width: 100%;
+  box-sizing: border-box; 
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  margin-top: 10px; 
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.name-fields {
+  display: flex;
+  gap: 8px; 
+}
+
+.name-fields input {
+  flex: 1;           
+  min-width: 0;      
+  box-sizing: border-box;
+}
+.error { color: #d9534f; font-size: 0.9rem; margin-top: 10px; text-align: center; }
+
+
+/* ========== FADE-IN + SLIDE-UP ANIMATION ========== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+  .auth-form {
+    padding: 40px 20px;
+  }
+  .form-header {
+    margin-top: 80px; 
+  }
+}
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .logo {
+    width: 150px;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    max-width: 350px;
+  }
+
+  .logo-container {
+    height: 120px;
+  }
+}
+
+/* Divider & Social Buttons */
+/* .divider {
+  text-align: center;
+  margin: 20px 0 10px;
+  font-size: 0.85rem;
+  color: #666;
+} */
+
+/* .social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+} */
+
+/* .social-btn {
+  flex: 1;
+  border: 1px solid #ccc;
+  background: #f8f9fa;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+} */
+
+/* .social-btn:hover {
+  background-color: #e9ecef;
+} */
+
